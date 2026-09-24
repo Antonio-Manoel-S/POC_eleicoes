@@ -5,7 +5,8 @@ import psycopg2
 import os
 from openai import OpenAI
 api_key = os.getenv("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")
-DB_URI = "postgresql://neondb_owner:npg_aHdKL6p7QSoc@ep-icy-snow-ace0d0no-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+
+DB_URI = "postgresql://neondb_owner:npg_wmRn2h9EWHTX@ep-late-dust-b6oif5bp-pooler.c-2.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 
 conn = psycopg2.connect(DB_URI)
 cur = conn.cursor()
