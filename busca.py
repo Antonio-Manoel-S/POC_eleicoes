@@ -3,8 +3,9 @@
 # Exemplo de consulta buscando os 3 itens mais parecidos com um vetor de busca
 import psycopg2
 import os
-from openai import OpenAI
-api_key = os.getenv("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")
+from google import genai
+api_key = os.getenv("GEMINI_API_KEY")
+client = genai.Client(api_key=api_key)
 
 DB_URI = "postgresql://neondb_owner:npg_wmRn2h9EWHTX@ep-late-dust-b6oif5bp-pooler.c-2.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 
@@ -14,9 +15,6 @@ cur = conn.cursor()
 # Reseta a transação se o código falhou
 conn.rollback()
 
-# 1. Inicializa o cliente oficial
-client = OpenAI(api_key=os.environ.get("genaiapi"))
-# 2. Define a pergunta em texto
 pergunta = "melhoria da segurança publica"
 
 resposta = client.models.embed_content(
